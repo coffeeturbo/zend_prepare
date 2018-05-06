@@ -1,0 +1,15 @@
+version: '2.1'
+services:
+  php:
+    build: ./docker/php
+    stdin_open: true
+    #volumes:
+     # - ./src:/opt/jet
+
+  ssmtp:
+    image: rickw/php-apache-ssmtp
+
+  maildev:
+    image: djfarrelly/maildev
+    ports:
+     - "8081:80"
